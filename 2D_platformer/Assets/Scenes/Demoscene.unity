@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 112714477}
   - component: {fileID: 112714476}
   - component: {fileID: 112714475}
-  - component: {fileID: 112714478}
   m_Layer: 0
   m_Name: SNinja_nosword_run 05
   m_TagString: Untagged
@@ -394,23 +393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777ddfa389ebaf4c9aee16dfdec74ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &112714478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112714472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1adaecc5c790a3848b6cbfa26a0245ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  jumpForce: 10
-  rb: {fileID: 0}
-  isOnGround: 1
-  spriteRenderer: {fileID: 0}
 --- !u!1 &240353690
 GameObject:
   m_ObjectHideFlags: 0
