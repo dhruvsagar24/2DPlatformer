@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public bool isOnGround = true;
     public SpriteRenderer spriteRenderer;
+    public GameObject attack;
    
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,13 @@ public class PlayerController : MonoBehaviour
         //     Debug.Log("GameOver");
         //     isGameOver=true;
         // }
+        if(Input.GetKey(KeyCode.Q)) {
+        Debug.Log("working");
+        attack.SetActive(true);
+       }
+        else{
+            attack.SetActive(false);
+        }
         
     }
     public void OnCollisionEnter2D ( Collision2D collision ){
