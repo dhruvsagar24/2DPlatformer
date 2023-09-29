@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject attack;
     public Animator animator;
     [SerializeField] private AudioSource jumpsoundeffect;
+    [SerializeField] private AudioSource attacksoundeffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("working");
         attack.SetActive(true);
         animator.SetBool("Attack",true);
+        attacksoundeffect.Play();
        }
         else{
             attack.SetActive(false);
