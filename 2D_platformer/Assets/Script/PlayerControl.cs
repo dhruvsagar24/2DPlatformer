@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public bool isOnGround = true;
     public SpriteRenderer spriteRenderer;
+    public GameObject attack;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
         // for translation along x axis.
         horizontalInput= Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right*speed*Time.deltaTime*horizontalInput);
-
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput*speed));
         // for rotating character
         if(horizontalInput<0){
             spriteRenderer.flipX=true;
@@ -32,9 +34,22 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
+        if(Input.GetKeyDown(KeyCode.Space) && isOnGround ){
             rb.AddForce(Vector3.up*jumpForce,ForceMode2D.Impulse);
+            animator.SetBool("Jump", true);
         isOnGround= false;
+        }
+
+
+        
+        if(Input.GetKey(KeyCode.Q)) {
+        Debug.Log("working");
+        attack.SetActive(true);
+        animator.SetBool("Attack",true);
+       }
+        else{
+            attack.SetActive(false);
+            animator.SetBool("Attack", false);
         }
 
         // else if (collision.gameObject.CompareTag("Obstacle")){
@@ -46,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter2D ( Collision2D collision ){
         if(collision.gameObject.CompareTag("Ground")){
             isOnGround=true;    
+            animator.SetBool("Jump", false);
           
         }
         }
