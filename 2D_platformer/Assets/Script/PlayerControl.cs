@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject attack;
     public Animator animator;
+    [SerializeField] private AudioSource jumpsoundeffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround ){
+            jumpsoundeffect.Play();
             rb.AddForce(Vector3.up*jumpForce,ForceMode2D.Impulse);
             animator.SetBool("Jump", true);
         isOnGround= false;
